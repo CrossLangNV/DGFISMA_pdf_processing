@@ -1,4 +1,5 @@
-# process-pdf-text
+# DGFISMA_pdf_processing
+
 
 use "dbuild.sh" to build the docker image 
 use "dcli.sh" to start a docker container
