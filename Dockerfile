@@ -35,5 +35,6 @@ WORKDIR /work
 COPY app.py /work
 COPY process_eurlex_regex.py /work
 COPY process_plain_pdf.py /work
+COPY test-set/ /work/test-set/
 
 CMD python /work/app.py
