@@ -15,7 +15,7 @@ def process_pdf():
     else:
         if request.json['source'] == 'eurlex_directive' or request.json['source'] == 'eurlex_regulation':
             try:
-                text = pdf_pipeline_regex.extract_text(request.json['path_to_pdf'])
+                text = process_eurlex_regex.extract_text(request.json['path_to_pdf'])
             except:
                 text = process_plain_pdf.extract_text(request.json['path_to_pdf'])
         if request.json['source'] != 'eurlex_directive' or request.json['source'] != 'eurlex_regulation':
