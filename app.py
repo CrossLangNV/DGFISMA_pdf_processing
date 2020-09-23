@@ -14,7 +14,10 @@ def process_pdf():
         print( "'source' field missing" )
     else:
         if request.json['source'] == 'eurlex_directive' or request.json['source'] == 'eurlex_regulation':
-            text = pdf_pipeline_regex.extract_text(request.json['path_to_pdf'])
+            try:
+                text = pdf_pipeline_regex.extract_text(request.json['path_to_pdf'])
+            except:
+                text = process_plain_pdf.extract_text(request.json['path_to_pdf'])
         if request.json['source'] != 'eurlex_directive' or request.json['source'] != 'eurlex_regulation':
             text = process_plain_pdf.extract_text(request.json['path_to_pdf'])
     return {"text" : text}
